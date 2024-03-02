@@ -1,0 +1,82 @@
+version: "3.7"
+services:
+
+  app_hom:
+    build: "./tuse-pwa-app"
+    # env_file:
+    #   - ../tuse-env/env_file_dev.env
+    container_name: app_hom
+    network_mode: "bridge"
+    dns:
+      - 8.8.8.8
+    # volumes:
+    #   - /home/jefferson.vieira/projeto-sistema-tuse/tuse-pwa-app:/var/www/html
+    #vOLUME sERVIDOR /home/tuse/projeto-sistema-tuse/tuse-pwa-app
+    volumes:
+      - /home/tuse/projeto-sistema-tuse/tuse-pwa-app:/var/www/html
+    restart: always
+    ports:
+      - 1080:80
+
+  # face_app_hom:
+  #   build: "./tuse-reconhecimento-facial-front"
+  #   container_name: face_app_hom
+  #   volumes:
+  #     - /home/jefferson.vieira/HDTS1TB/projeto-sistema-tuse/tuse-reconhecimento-facial-front:/usr/local/apache2/htdocs/
+  #   restart: always
+  #   ports:
+  #     - 1081:80
+
+  
+  # backoffice_hom:
+  #   build: "./tuse-pwa-backoffice"
+  #   container_name: backoffice_hom
+  #   # volumes:
+  #   #   - /home/jefferson.vieira/HDTS1TB/projeto-sistema-tuse/tuse-pwa-backoffice:/usr/share/nginx/html
+  #   restart: always
+  #   ports:
+  #     - 1090:80
+
+  # checkout_hom:
+  #   build: "./tuse-api-checkout"
+  #   env_file:
+  #     - ./tuse-env/env_file_dev.env
+  #   container_name: checkout_hom
+  #   volumes:
+  #     - /home/jefferson.vieira/HDTS1TB/projeto-sistema-tuse/tuse-api-checkout:/app 
+  #   restart: always
+  #   ports:
+  #     - 1091:8000
+
+  impressao_hom:
+    build: "./tuse-api-impressao"
+    env_file:
+      - ../tuse-env/env_file_dev.env
+    container_name: impressao_hom
+    network_mode: "bridge"
+    restart: always
+    ports:
+      - 1093:8000
+
+  # franquia_hom:
+  #   build: "./tuse-api-franquia"
+  #   env_file:
+  #     - ../tuse-env/env_file_dev.env
+  #   container_name: franquia_hom
+  #   volumes:
+  #     - /home/jefferson.vieira/HDTS1TB/projeto-sistema-tuse/tuse-api-franquia:/app 
+  #   restart: always
+  #   ports:
+  #     - 1092:8000
+  usuario_hom:
+    build: "./tuse-api-usuario"
+    env_file:
+      - ../tuse-env/env_file_dev.env
+    container_name: usuario_hom
+    network_mode: "bridge"
+    restart: always
+    ports:
+      - 1095:8000
+
+  
+  

@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+
+  app:
+    build: "./app"
+    # env_file:
+    #   - ../tuse-env/env_file.env
+    container_name: app
+    volumes:
+      - ./app:/usr/local/apache2/htdocs/
+    restart: always
+    ports:
+      - 7092:80
+
+  api:
+    build: "./api"
+    # env_file:
+    #   - ../tuse-env/env_file.env
+    container_name: api
+    volumes:
+      - ./api:/home/app
+    network_mode: "bridge"
+    restart: always
+    ports:
+      - 8000:8000
+  
+  # usuario_prod:
+  #   build: "./tuse-api-usuario"
+  #   env_file:
+  #     - ../tuse-env/env_file.env
+  #   container_name: usuario
+  #   network_mode: "bridge"
+  #   restart: always
+  #   ports:
+  #     - 8095:8000
+  
+  #8096 Franquia
