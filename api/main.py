@@ -57,7 +57,7 @@ async def login(request: Request):
 
     return {
         "status": True,
-        "Version": 6.0,
+        "Version": 7.0,
         "Api": "Api Usuário"
     }
 
@@ -72,7 +72,7 @@ async def status():
 
     return {
         "status": True,
-        "Version": 6.0,
+        "Version": 7.0,
         "Api": "Api Usuário"
     }
 
